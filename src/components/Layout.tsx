@@ -1,8 +1,6 @@
 import { ReactNode } from 'react';
-import { Inter } from 'next/font/google';
+import { cutiveMono } from '@styles/fonts';
 import Head from 'next/head';
-
-const inter = Inter({ subsets: ['latin'] });
 
 export default function RootLayout({
   children,
@@ -14,7 +12,7 @@ export default function RootLayout({
       <Head>
         <title>Xavier Padoan &bull; Dev</title>
       </Head>
-      <body className={inter.className}>{children}</body>
+      <main className={cutiveMono.className}>{children}</main>
     </>
   );
 }
