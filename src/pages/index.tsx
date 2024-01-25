@@ -2,6 +2,7 @@ import cn from 'classnames';
 import { NextPageWithLayout } from './_app';
 import RootLayout from '@components/Layout';
 import { cuteFont } from '@styles/fonts';
+import { ContactDialog } from '@components/ContactDialog';
 
 const Home: NextPageWithLayout = () => {
   return (
@@ -22,9 +23,13 @@ const Home: NextPageWithLayout = () => {
           </p>
           <p className="w-full text-right text-lg leading-5">
             You have a project ?<br />
-            <span className="underline decoration-dotted underline-offset-2 hover:cursor-pointer hover:text-blue-600">
-              Tell me about it !
-            </span>
+            <ContactDialog
+              trigger={
+                <span className="underline decoration-dotted underline-offset-2 hover:cursor-pointer hover:text-blue-600">
+                  Tell me about it !
+                </span>
+              }
+            />
           </p>
         </div>
       </div>
