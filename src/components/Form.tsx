@@ -1,9 +1,17 @@
 import cn from 'classnames';
-import { UseFormReturn, UseFormRegisterReturn } from 'react-hook-form';
+import {
+  UseFormReturn,
+  UseFormRegisterReturn,
+  Control,
+  FieldValues,
+  Controller,
+  Path,
+  FieldError,
+} from 'react-hook-form';
 import { cutiveMono } from '@styles/fonts';
-import { ReactNode } from 'react';
+import { ReactNode, TextareaHTMLAttributes } from 'react';
 
-export const Form = <T extends Record<string, unknown>>({
+export const Form = <T extends FieldValues>({
   formContext,
   onSubmit,
   children,
@@ -31,17 +39,25 @@ export const InputEmail = <Name extends string>({
   label,
   name,
   register,
+  error,
 }: {
   label: string;
   name: Name;
   register: UseFormRegisterReturn<Name>;
+  error?: FieldError;
 }) => {
   return (
     <div className="flex flex-row gap-4">
-      <label className="font-bold" htmlFor={name}>
+      <label
+        className={cn('font-bold whitespace-nowrap', {
+          'text-red-600': Boolean(error),
+        })}
+        htmlFor={name}
+      >
         {label}
       </label>
       <input
+        id={name}
         className="bg-black focus:outline-none hover:bg-gray-800 focus:bg-gray-900 w-full"
         type="email"
         {...register}
@@ -54,17 +70,25 @@ export const InputText = <Name extends string>({
   label,
   name,
   register,
+  error,
 }: {
   label: string;
   name: Name;
   register: UseFormRegisterReturn<Name>;
+  error?: FieldError;
 }) => {
   return (
     <div className="flex flex-row gap-4">
-      <label className="font-bold" htmlFor={name}>
+      <label
+        className={cn('font-bold whitespace-nowrap', {
+          'text-red-600': Boolean(error),
+        })}
+        htmlFor={name}
+      >
         {label}
       </label>
       <input
+        id={name}
         className="bg-black focus:outline-none hover:bg-gray-800 focus:bg-gray-900 w-full"
         type="text"
         {...register}
@@ -82,26 +106,80 @@ export const InputTextFake = ({
 }) => {
   return (
     <div className="flex flex-row gap-4">
-      <label className="font-bold">{label}</label>
+      <label className="font-bold whitespace-nowrap">{label}</label>
       <span>{value}</span>
     </div>
   );
 };
 
-export const InputTextArea = <Name extends string>({
+export const InputTextArea = <T extends FieldValues>({
+  label,
+  name,
   register,
-  rows,
+  ...props
 }: {
-  register: UseFormRegisterReturn<Name>;
-  rows: HTMLTextAreaElement['rows'];
-}) => {
+  label?: string;
+  name: Path<T>;
+  register: UseFormRegisterReturn<Path<T>>;
+} & TextareaHTMLAttributes<HTMLTextAreaElement>) => {
   return (
-    <div>
+    <div className="flex flex-row gap-4">
+      {label && (
+        <label htmlFor={name} className="font-bold whitespace-nowrap">
+          {label}
+        </label>
+      )}
       <textarea
+        id={name}
         className="bg-black focus:outline-none hover:bg-gray-800 focus:bg-gray-900 font-normal w-full"
-        rows={rows}
+        rows={props?.rows}
         {...register}
       />
     </div>
+  );
+};
+
+export const FieldSet = ({
+  legend,
+  children,
+}: {
+  legend: string;
+  children: ReactNode;
+}) => {
+  return (
+    <fieldset>
+      <legend>{legend}</legend>
+      <div className="ml-4">{children}</div>
+    </fieldset>
+  );
+};
+
+export const CheckBox = <T extends FieldValues>({
+  control,
+  name,
+  label,
+}: {
+  control: Control<T>;
+  name: Path<T>;
+  label: string;
+}) => {
+  return (
+    <Controller
+      control={control}
+      name={name}
+      render={({ field: { onChange, value } }) => {
+        return (
+          <div
+            className="flex flex-row gap-4 cursor-pointer group"
+            onClick={() => {
+              onChange(!value);
+            }}
+          >
+            <span className="font-bold group-hover:text-blue-600">{`[${value ? 'X' : ' '}]`}</span>
+            <label htmlFor={name}>{label}</label>
+          </div>
+        );
+      }}
+    />
   );
 };

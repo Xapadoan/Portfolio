@@ -32,7 +32,7 @@ export const ContactDialog = ({ trigger }: { trigger: ReactNode }) => {
         <InputEmail
           name="from"
           label="From:"
-          register={formContext.register('from')}
+          register={formContext.register('from', { required: true })}
         />
         <InputTextFake label="To:" value="xavier.padoan.dev@gmail.com" />
         <InputTextFake label="Date:" value={new Date().toUTCString()} />
@@ -41,7 +41,11 @@ export const ContactDialog = ({ trigger }: { trigger: ReactNode }) => {
           name="subject"
           register={formContext.register('subject')}
         />
-        <InputTextArea rows={10} register={formContext.register('body')} />
+        <InputTextArea
+          name="body"
+          rows={10}
+          register={formContext.register('body')}
+        />
       </Form>
     </Dialog>
   );
