@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  portfolio:
+    container_name: portfolio
+    build:
+      context: .
+    environment:
+      - DB_NAME=${DB_NAME}
+      - DB_HOST=db
+      - DB_USER=${DB_USER}
+      - DB_PASS=${DB_PASS}
+    depends_on:
+      - db
+    ports:
+      - 3000:3000
+  db:
+    container_name: db
+    image: mysql:8
+    environment:
+      - MYSQL_DATABASE=${DB_NAME}
+      - MYSQL_USER=${DB_USER}
+      - MYSQL_PASSWORD=${DB_PASS}
+      - MYSQL_RANDOM_ROOT_PASSWORD=yes
+    volumes:
+      - ./mysql-data:/var/lib/mysql
