@@ -27,7 +27,7 @@ export const Form = <T extends FieldValues>({
     >
       {children}
       <input
-        className="underline decoration-dotted underline-offset-2 hover:cursor-pointer hover:text-blue-600"
+        className="underline decoration-dotted underline-offset-2 hover:cursor-pointer hover:text-secondary-fg"
         type="submit"
         value="Send"
       />
@@ -58,7 +58,7 @@ export const InputEmail = <Name extends string>({
       </label>
       <input
         id={name}
-        className="bg-black focus:outline-none hover:bg-gray-800 focus:bg-gray-900 w-full"
+        className="bg-passive-bg focus:outline-none hover:bg-highlight-bg focus:bg-active-bg w-full"
         type="email"
         {...register}
       />
@@ -89,7 +89,7 @@ export const InputText = <Name extends string>({
       </label>
       <input
         id={name}
-        className="bg-black focus:outline-none hover:bg-gray-800 focus:bg-gray-900 w-full"
+        className="bg-passive-bg focus:outline-none hover:bg-highlight-bg focus:bg-active-bg w-full"
         type="text"
         {...register}
       />
@@ -131,7 +131,7 @@ export const InputTextArea = <T extends FieldValues>({
       )}
       <textarea
         id={name}
-        className="bg-black focus:outline-none hover:bg-gray-800 focus:bg-gray-900 font-normal w-full"
+        className="bg-passive-bg focus:outline-none hover:bg-highlight-bg focus:bg-active-bg font-normal w-full"
         rows={props?.rows}
         {...register}
       />
@@ -175,7 +175,7 @@ export const CheckBox = <T extends FieldValues>({
               onChange(!value);
             }}
           >
-            <span className="font-bold group-hover:text-blue-600">{`[${value ? 'X' : ' '}]`}</span>
+            <span className="font-bold group-hover:text-secondary-fg whitespace-nowrap">{`[${value ? 'X' : ' '}]`}</span>
             <label htmlFor={name}>{label}</label>
           </div>
         );

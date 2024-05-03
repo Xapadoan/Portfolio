@@ -21,8 +21,8 @@ export const Dialog = ({
     <Root>
       <Trigger asChild>{trigger}</Trigger>
       <Portal>
-        <Content className="fixed bottom-0 right-0 h-screen w-[50vw] border-gray-400 border-2">
-          <header className="flex flex-row align-middle bg-gray-700 border-b-1 border-gray-400">
+        <Content className="fixed bottom-0 right-0 h-screen w-full md:w-1/2 bg-passive-bg border-gray-400 border-2">
+          <header className="flex flex-row align-middle bg-active-bg border-b-1 border-gray-400">
             <Close className="outline-none focus:outline-none">
               <div className="flex justify-center items-center w-6 h-6 text-[10px]">
                 🔴
