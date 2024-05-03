@@ -6,6 +6,11 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+  --background-passive: #f0f0f0;
+  --background-active: #d0d0d0;
+  --background-highlight: #e0e0e0;
+  --foreground-primary: #090909;
+  --foreground-secondary: #4583fa;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -13,11 +18,16 @@
     --foreground-rgb: 255, 255, 255;
     --background-start-rgb: 0, 0, 0;
     --background-end-rgb: 0, 0, 0;
+    --background-passive: #090909;
+    --background-active: #292929;
+    --background-highlight: #191919;
+    --foreground-primary: #f0f0f0;
+    --foreground-secondary: #2563ea;
   }
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
+  color: var(--foreground-primary);
   background: linear-gradient(
       to bottom,
       transparent,
