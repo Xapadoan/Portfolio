@@ -3,6 +3,7 @@ import { NextPageWithLayout } from './_app';
 import RootLayout from '@components/Layout';
 import { cuteFont } from '@styles/fonts';
 import { ProjectDialog } from '@components/ProjectDialog';
+import Image from 'next/image';
 
 const Home: NextPageWithLayout = () => {
   return (
@@ -32,6 +33,15 @@ const Home: NextPageWithLayout = () => {
             />
           </p>
         </div>
+      </div>
+      <div className="w-full md:w-1/2 h-full p-2 flex items-center justify-start">
+        <Image
+          alt="A picture of me"
+          src="/me.png"
+          width={814}
+          height={691}
+          unoptimized
+        />
       </div>
     </div>
   );
