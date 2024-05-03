@@ -6,8 +6,8 @@ import { ProjectDialog } from '@components/ProjectDialog';
 
 const Home: NextPageWithLayout = () => {
   return (
-    <div className="w-screen h-screen">
-      <div className="w-1/2 h-full flex items-center justify-center">
+    <div className="w-screen h-screen flex flex-col md:flex-row">
+      <div className="w-full md:w-1/2 h-full p-4 flex items-center justify-center md:justify-end">
         <div className="flex flex-col gap-8">
           <p className="text-2xl leading-6">
             Hi, I&apos;m
@@ -25,7 +25,7 @@ const Home: NextPageWithLayout = () => {
             You have a project ?<br />
             <ProjectDialog
               trigger={
-                <span className="underline decoration-dotted underline-offset-2 cursor-pointer hover:text-blue-600">
+                <span className="underline decoration-dotted underline-offset-2 cursor-pointer hover:text-secondary-fg">
                   Tell me about it !
                 </span>
               }
