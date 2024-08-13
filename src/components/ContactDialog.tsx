@@ -1,12 +1,12 @@
 import { ReactNode } from 'react';
-import { Dialog } from '@components/Dialog';
+import { Dialog } from 'src/components/Dialog';
 import {
   Form,
   InputEmail,
   InputTextFake,
   InputText,
   InputTextArea,
-} from '@components/Form';
+} from 'src/components/Form';
 import { useForm } from 'react-hook-form';
 
 type ContactForm = {

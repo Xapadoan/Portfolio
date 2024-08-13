@@ -8,6 +8,16 @@ import {
 } from '@radix-ui/react-dialog';
 import { ReactNode } from 'react';
 
+export function TextTrigger({ children }: Readonly<{ children: string }>) {
+  return (
+    <Trigger asChild>
+      <span className="underline decoration-dotted underline-offset-2 cursor-pointer hover:text-secondary-fg">
+        {children}
+      </span>
+    </Trigger>
+  );
+}
+
 export const Dialog = ({
   title,
   trigger,
@@ -19,7 +29,7 @@ export const Dialog = ({
 }) => {
   return (
     <Root>
-      <Trigger asChild>{trigger}</Trigger>
+      {trigger}
       <Portal>
         <Content className="fixed bottom-0 right-0 h-screen w-full md:w-1/2 bg-passive-bg border-gray-400 border-2">
           <header className="flex flex-row align-middle bg-active-bg border-b-1 border-gray-400">

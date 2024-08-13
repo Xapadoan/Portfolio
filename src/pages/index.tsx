@@ -2,8 +2,9 @@ import cn from 'classnames';
 import { NextPageWithLayout } from './_app';
 import RootLayout from '@components/Layout';
 import { cuteFont } from '@styles/fonts';
-import { ProjectDialog } from '@components/ProjectDialog';
+import { ProjectDialog } from 'src/components/ProjectDialog';
 import Image from 'next/image';
+import { TextTrigger } from '@components/Dialog';
 
 const Home: NextPageWithLayout = () => {
   return (
@@ -25,11 +26,7 @@ const Home: NextPageWithLayout = () => {
           <p className="w-full text-right text-lg leading-5">
             You have a project ?<br />
             <ProjectDialog
-              trigger={
-                <span className="underline decoration-dotted underline-offset-2 cursor-pointer hover:text-secondary-fg">
-                  Tell me about it !
-                </span>
-              }
+              trigger={<TextTrigger>Tell me about it !</TextTrigger>}
             />
           </p>
         </div>

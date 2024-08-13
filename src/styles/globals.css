@@ -11,6 +11,12 @@
   --background-highlight: #e0e0e0;
   --foreground-primary: #090909;
   --foreground-secondary: #4583fa;
+  --code-regular: #000;
+  --code-symbol-declaration: #4583fa;
+  --code-type-name: #2eb990;
+  --code-function: #7c7b4a;
+  --code-control-flow: #c556c0;
+  --code-value: #859e78;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -23,6 +29,12 @@
     --background-highlight: #191919;
     --foreground-primary: #f0f0f0;
     --foreground-secondary: #2563ea;
+    --code-regular: #fff;
+    --code-symbol-declaration: #2563ea;
+    --code-type-name: #3eb9a0;
+    --code-function: #cccc9a;
+    --code-control-flow: #c586c0;
+    --code-value: #b5cea8;
   }
 }
 

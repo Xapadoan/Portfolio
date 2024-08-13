@@ -17,6 +17,7 @@ const config: Config = {
         'passive-bg': 'var(--background-passive)',
         'active-bg': 'var(--background-active)',
         'highlight-bg': 'var(--background-highlight)',
+        'primary-fg': 'var(--foreground-primary)',
         'secondary-fg': 'var(--foreground-secondary)',
       },
     },

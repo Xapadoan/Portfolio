@@ -15,16 +15,17 @@
     "incremental": true,
     "plugins": [
       {
-        "name": "next"
-      }
+        "name": "next",
+      },
     ],
     "baseUrl": ".",
     "paths": {
       "@lib/*": ["src/lib/*"],
       "@components/*": ["src/components/*"],
-      "@styles/*": ["src/styles/*"]
-    }
+      "@assets/*": ["src/assets/*"],
+      "@styles/*": ["src/styles/*"],
+    },
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules"],
 }
