@@ -18,6 +18,12 @@ const Articles: NextPageWithLayout = () => {
           thumbnail="/the_cake_is_a_lie.jpg"
           url="/articles/type-errors-in-typescript"
         />
+        <ArticlePreview
+          title="Enjoy validation with middlewares"
+          description={`Being able to type the request can be really cool, but first things first, you need to validate your data`}
+          thumbnail="/the_cake_is_a_lie.jpg"
+          url="/articles/enjoy-validation-middlewares"
+        />
       </div>
     </div>
   );
