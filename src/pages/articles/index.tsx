@@ -24,6 +24,12 @@ const Articles: NextPageWithLayout = () => {
           thumbnail="/the_cake_is_a_lie.jpg"
           url="/articles/enjoy-validation-middlewares"
         />
+        <ArticlePreview
+          title="Enforce Clean Architecture with Middlewares"
+          description={`Validation middlewares are great, but we can also use this concept to clean up our code`}
+          thumbnail="/the_cake_is_a_lie.jpg"
+          url="/articles/enforce-modularity-with-middlewares"
+        />
       </div>
     </div>
   );
